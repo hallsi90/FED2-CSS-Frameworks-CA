@@ -47,7 +47,42 @@
           aria-label="Open menu"
           id="menu-button"
         >
-          <span id="menu-label">Menu</span>
+          <span id="menu-label" class="sr-only">Menu</span>
+
+          <!-- Hamburger icon -->
+          <svg
+            id="icon-open"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+
+          <!-- Close icon (hidden by default) -->
+          <svg
+            id="icon-close"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="hidden h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18" />
+            <path d="M6 6l12 12" />
+          </svg>
         </button>
       </nav>
 
