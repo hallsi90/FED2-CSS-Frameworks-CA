@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social App | Sign In</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
+    <!-- Header -->
+
+    <header class="border-b border-slate-200 bg-white">
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+      >
+        <a
+          href="./index.html"
+          class="text-lg font-semibold tracking-tight cursor-pointer"
+          >Social<span class="text-slate-500">App</span></a
+        >
+
+        <!-- Desktop nav -->
+        <ul class="hidden items-center gap-6 md:flex">
+          <li>
+            <a
+              href="./feed/index.html"
+              class="text-sm font-medium text-slate-700 hover:text-slate-900 cursor-pointer"
+              >Feed</a
+            >
+          </li>
+          <li>
+            <a
+              href="./profile/index.html"
+              class="text-sm font-medium text-slate-700 hover:text-slate-900 cursor-pointer"
+              >Profile</a
+            >
+          </li>
+        </ul>
+
+        <!-- Mobile menu button -->
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium hover:bg-slate-50 md:hidden cursor-pointer"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Open menu"
+          id="menu-button"
+        >
+          <span id="menu-label" class="sr-only">Menu</span>
+
+          <!-- Hamburger icon -->
+          <svg
+            id="icon-open"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+
+          <!-- Close icon (hidden by default) -->
+          <svg
+            id="icon-close"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="hidden h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile menu (hidden by default; toggle with JS) -->
+      <div
+        class="hidden border-t border-slate-200 bg-white md:hidden"
+        id="mobile-menu"
+      >
+        <ul class="mx-auto max-w-6xl px-4 py-3">
+          <li>
+            <a
+              href="./feed/index.html"
+              class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-50 cursor-pointer"
+              >Feed</a
+            >
+          </li>
+          <li>
+            <a
+              href="./profile/index.html"
+              class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-50 cursor-pointer"
+              >Profile</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main
+      class="mx-auto grid max-w-6xl flex-1 gap-8 px-4 py-10 md:grid-cols-2 md:items-center"
+    >
+      <!-- Left: intro -->
+      <section class="space-y-4">
+        <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">
+          Welcome back
+        </h1>
+        <p class="max-w-prose text-slate-600">
+          Sign in to see your feed, or create an account to start posting.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="./profile/index.html"
+            class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50 cursor-pointer"
+            >View profile</a
+          >
+        </div>
+      </section>
+
+      <!-- Right: sign in form -->
+      <section>
+        <div
+          class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+        >
+          <div class="mb-6 space-y-1">
+            <h2 class="text-xl font-semibold">Log in or register</h2>
+            <p class="text-sm text-slate-600">
+              Fill out the form below. Required fields are marked.
+            </p>
+          </div>
+
+          <form action="/profile" method="get" class="space-y-4">
+            <div class="space-y-1">
+              <label for="email" class="text-sm font-medium"
+                >Email <span class="text-slate-500">(required)</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="you@example.com"
+                class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+              />
+            </div>
+            <div class="space-y-1">
+              <label for="password" class="text-sm font-medium"
+                >Password
+                <span class="text-slate-500">(min 8 characters)</span></label
+              >
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                minlength="8"
+                autocomplete="current-password"
+                placeholder="••••••••"
+                class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+              />
+            </div>
+
+            <div class="space-y-1">
+              <label for="username" class="text-sm font-medium"
+                >Username
+                <span class="text-slate-500">(optional for login)</span></label
+              >
+              <input
+                type="text"
+                id="username"
+                name="username"
+                minlength="3"
+                maxlength="20"
+                placeholder="e.g. username"
+                class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+              />
+            </div>
+
+            <fieldset class="space-y-2">
+              <legend class="text-sm font-medium">I want to</legend>
+              <div class="flex flex-wrap gap-4">
+                <label class="inline-flex items-center gap-2 text-sm">
+                  <input
+                    type="radio"
+                    name="mode"
+                    value="login"
+                    checked
+                    class="h-4 w-4"
+                  />Log in
+                </label>
+
+                <label class="inline-flex items-center gap-2 text-sm">
+                  <input
+                    type="radio"
+                    name="mode"
+                    value="register"
+                    class="h-4 w-4"
+                  />Register
+                </label>
+              </div>
+            </fieldset>
+
+            <button
+              type="submit"
+              class="w-full rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 cursor-pointer"
+            >
+              Continue
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+      <p class="mx-auto max-w-6xl px-4 py-6 text-sm text-slate-600">
+        &copy; <span id="year">2026</span> SocialApp
+      </p>
+    </footer>
+    <script src="./js/menu.js" defer></script>
+  </body>
+</html>

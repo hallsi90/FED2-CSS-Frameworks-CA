@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social App | Profile</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
+    <!-- Header -->
+    <header class="border-b border-slate-200 bg-white">
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+      >
+        <a
+          href="../index.html"
+          class="text-lg font-semibold tracking-tight cursor-pointer"
+          >Social<span class="text-slate-500">App</span></a
+        >
+
+        <!-- Desktop nav -->
+        <ul class="hidden items-center gap-6 md:flex">
+          <li>
+            <a
+              href="../feed/index.html"
+              class="text-sm font-medium text-slate-700 hover:text-slate-900 cursor-pointer"
+              >Feed</a
+            >
+          </li>
+          <li>
+            <a
+              href="./index.html"
+              class="text-sm font-semibold text-slate-900 cursor-pointer"
+              >Profile</a
+            >
+          </li>
+          <li>
+            <a
+              href="../index.html"
+              class="text-sm font-medium text-slate-700 hover:text-slate-900 cursor-pointer"
+              >Log out</a
+            >
+          </li>
+        </ul>
+
+        <!-- Mobile menu button -->
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium hover:bg-slate-50 md:hidden cursor-pointer"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Open menu"
+          id="menu-button"
+        >
+          <span id="menu-label" class="sr-only">Menu</span>
+
+          <!-- Hamburger icon -->
+          <svg
+            id="icon-open"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+
+          <!-- Close icon (hidden by default) -->
+          <svg
+            id="icon-close"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5 hidden"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile menu (hidden by default; toggle with JS) -->
+      <div
+        class="hidden border-t border-slate-200 bg-white md:hidden"
+        id="mobile-menu"
+      >
+        <ul class="mx-auto max-w-6xl px-4 py-3">
+          <li>
+            <a
+              href="../feed/index.html"
+              class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-50 cursor-pointer"
+              >Feed</a
+            >
+          </li>
+          <li>
+            <a
+              href="./index.html"
+              class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-50 cursor-pointer"
+              >Profile</a
+            >
+          </li>
+          <li>
+            <a
+              href="../index.html"
+              class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-50 cursor-pointer"
+              >Log out</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="mx-auto max-w-6xl flex-1 space-y-8 px-4 py-8">
+      <!-- Profile header -->
+      <section
+        class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+      >
+        <div
+          class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <!-- Left: avatar + name -->
+          <div class="flex items-center gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1740252117044-2af197eea287?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Profile picture"
+              class="h-16 w-16 rounded-full object-cover ring-2 ring-slate-100"
+              loading="lazy"
+            />
+            <div>
+              <h1 class="text-xl font-semibold tracking-tight">@alex</h1>
+              <p class="text-sm text-slate-600">
+                Sharing small moments and ideas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: follow + stats -->
+          <div class="flex flex-col gap-3 sm:items-end">
+            <button
+              type="button"
+              class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 cursor-pointer"
+            >
+              Follow
+            </button>
+
+            <div class="flex gap-6 text-sm">
+              <p><span class="font-semibold">128</span> followers</p>
+              <p><span class="font-semibold">85</span> following</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- User posts -->
+      <section aria-label="User posts" class="space-y-4">
+        <header class="flex items-end justify-between">
+          <h2 class="text-lg font-semibold">Posts</h2>
+          <p class="text-sm text-slate-600">3 posts</p>
+        </header>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Post card 1 -->
+          <article
+            class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1721315163449-c1cecf25a41b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="A forest path"
+              class="h-40 w-full object-cover"
+              loading="lazy"
+            />
+            <div class="space-y-2 p-4">
+              <div class="flex items-center justify-between">
+                <p class="text-xs text-slate-500">2h ago</p>
+                <p class="text-xs text-slate-500">❤ 12</p>
+              </div>
+              <h3 class="font-semibold">Morning walk</h3>
+              <p class="text-sm text-slate-600">Quick walk before work!</p>
+            </div>
+          </article>
+
+          <!-- Post card 2 -->
+          <article
+            class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1614624532983-4ce03382d63d?q=80&w=2831&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Desk setup"
+              class="h-40 w-full object-cover"
+              loading="lazy"
+            />
+            <div class="space-y-2 p-4">
+              <div class="flex items-center justify-between">
+                <p class="text-xs text-slate-500">5h ago</p>
+                <p class="text-xs text-slate-500">❤ 21</p>
+              </div>
+              <h3 class="font-semibold">New setup</h3>
+              <p class="text-sm text-slate-600">Just organized my desk!</p>
+            </div>
+          </article>
+
+          <!-- Post card 3 -->
+          <article
+            class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1518057111178-44a106bad636?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Coffee cup"
+              class="h-40 w-full object-cover"
+              loading="lazy"
+            />
+            <div class="space-y-2 p-4">
+              <div class="flex items-center justify-between">
+                <p class="text-xs text-slate-500">1d ago</p>
+                <p class="text-xs text-slate-500">❤ 8</p>
+              </div>
+              <h3 class="font-semibold">Coffee break</h3>
+              <p class="text-sm text-slate-600">Enjoying a cup of coffee.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white">
+      <p class="mx-auto max-w-6xl px-4 py-6 text-sm text-slate-600">
+        &copy; <span id="year">2026</span> SocialApp
+      </p>
+    </footer>
+
+    <script src="../js/menu.js" defer></script>
+  </body>
+</html>

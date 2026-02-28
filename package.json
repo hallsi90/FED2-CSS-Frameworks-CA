@@ -1,0 +1,25 @@
+{
+  "name": "fed2-css-frameworks-ca",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "build": "tailwindcss -i ./css/input.css -o ./css/style.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hallsi90/FED2-CSS-Frameworks-CA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hallsi90/FED2-CSS-Frameworks-CA/issues"
+  },
+  "homepage": "https://github.com/hallsi90/FED2-CSS-Frameworks-CA#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}

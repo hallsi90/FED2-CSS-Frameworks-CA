@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social App | Feed</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
+    <!-- Header -->
+    <header class="border-b border-slate-200 bg-white">
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+      >
+        <a
+          href="../index.html"
+          class="text-lg font-semibold tracking-tight cursor-pointer"
+          >Social<span class="text-slate-500">App</span></a
+        >
+
+        <!-- Desktop nav -->
+        <ul class="hidden items-center gap-6 md:flex">
+          <li>
+            <a
+              href="./index.html"
+              class="text-sm font-semibold text-slate-900 cursor-pointer"
+              >Feed</a
+            >
+          </li>
+          <li>
+            <a
+              href="../profile/index.html"
+              class="text-sm font-medium text-slate-700 hover:text-slate-900 cursor-pointer"
+              >Profile</a
+            >
+          </li>
+          <li>
+            <a
+              href="../index.html"
+              class="text-sm font-medium text-slate-700 hover:text-slate-900 cursor-pointer"
+              >Log out</a
+            >
+          </li>
+        </ul>
+
+        <!-- Mobile menu button -->
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium hover:bg-slate-50 md:hidden cursor-pointer"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Open menu"
+          id="menu-button"
+        >
+          <span id="menu-label" class="sr-only">Menu</span>
+
+          <!-- Hamburger icon -->
+          <svg
+            id="icon-open"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+
+          <!-- Close icon (hidden by default) -->
+          <svg
+            id="icon-close"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="hidden h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile menu (hidden by default; toggle with JS) -->
+      <div
+        class="hidden border-t border-slate-200 bg-white md:hidden"
+        id="mobile-menu"
+      >
+        <ul class="mx-auto max-w-6xl px-4 py-3">
+          <li>
+            <a
+              href="./index.html"
+              class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-50 cursor-pointer"
+              >Feed</a
+            >
+          </li>
+          <li>
+            <a
+              href="../profile/index.html"
+              class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-50 cursor-pointer"
+              >Profile</a
+            >
+          </li>
+          <li>
+            <a
+              href="../index.html"
+              class="block rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-50 cursor-pointer"
+              >Log out</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="mx-auto max-w-6xl space-y-8 px-4 py-8 flex-1">
+      <!-- Page heading -->
+      <header class="space-y-2">
+        <h1 class="text-2xl font-semibold tracking-tight sm:text-3xl">
+          Your feed
+        </h1>
+        <p class="max-w-prose text-sm text-slate-600">
+          Browse posts, search, sort, and create a new post.
+        </p>
+      </header>
+
+      <!-- Two-column layout on desktop: sidebar + feed -->
+      <section class="grid gap-8 lg:grid-cols-3 lg:items-start">
+        <!-- Sidebar: create post form -->
+        <aside class="lg:col-span-1 lg:sticky lg:top-6">
+          <div
+            class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+          >
+            <h2 class="text-lg font-semibold">Create post</h2>
+
+            <form class="mt-4 space-y-3">
+              <div class="space-y-1">
+                <label for="post-title" class="text-sm font-medium"
+                  >Title</label
+                >
+                <input
+                  type="text"
+                  id="post-title"
+                  name="title"
+                  required
+                  maxlength="60"
+                  placeholder="What's on your mind?"
+                  class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+                />
+              </div>
+
+              <div class="space-y-1">
+                <label for="post-body" class="text-sm font-medium"
+                  >Post caption</label
+                >
+                <textarea
+                  name="body"
+                  id="post-body"
+                  rows="4"
+                  required
+                  placeholder="Write something..."
+                  class="w-full resize-y rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+                ></textarea>
+              </div>
+
+              <div class="space-y-1">
+                <label for="post-image" class="text-sm font-medium"
+                  >Image URL</label
+                >
+                <input
+                  type="url"
+                  id="post-image"
+                  name="image"
+                  placeholder="https://example.com/photo.jpg"
+                  class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="w-full rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 cursor-pointer"
+              >
+                Post
+              </button>
+            </form>
+          </div>
+        </aside>
+
+        <!-- Right column: controls + posts -->
+        <section class="space-y-6 lg:col-span-2">
+          <!-- Controls: search + sort -->
+          <div class="grid gap-4 md:grid-cols-2 md:items-start">
+            <div class="space-y-1">
+              <label for="search" class="text-sm font-medium"
+                >Search posts</label
+              >
+              <input
+                type="search"
+                id="search"
+                placeholder="Search by title or username..."
+                class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+              />
+            </div>
+
+            <div class="space-y-1">
+              <label for="sort" class="text-sm font-medium">Sort</label>
+              <select
+                id="sort"
+                class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+              >
+                <option value="newest">Newest</option>
+                <option value="popular">Most popular</option>
+                <option value="following">Following</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Posts list -->
+          <section aria-label="Posts">
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <!-- Post card 1 -->
+              <article
+                class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1663922518884-1823a6ac9c8c?q=80&w=1626&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="A scenic landscape"
+                  class="h-40 w-full object-cover"
+                  loading="lazy"
+                />
+                <div class="space-y-2 p-4">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium">@alex</p>
+                    <p class="text-xs text-slate-500">2h ago</p>
+                  </div>
+                  <h3 class="font-semibold">Morning walk</h3>
+                  <p class="text-sm text-slate-600">Quick walk before work!</p>
+                </div>
+              </article>
+
+              <!-- Post card 2 -->
+              <article
+                class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="A cozy desk setup"
+                  class="h-40 w-full object-cover"
+                  loading="lazy"
+                />
+                <div class="space-y-2 p-4">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium">@maya</p>
+                    <p class="text-xs text-slate-500">5h ago</p>
+                  </div>
+                  <h3 class="font-semibold">New setup</h3>
+                  <p class="text-sm text-slate-600">
+                    Finally cleaned up my workspace!
+                  </p>
+                </div>
+              </article>
+
+              <!-- Post card 3 -->
+              <article
+                class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1692776407523-8f3c4678ad36?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="A bowl of food"
+                  class="h-40 w-full object-cover"
+                  loading="lazy"
+                />
+                <div class="space-y-2 p-4">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium">@sam</p>
+                    <p class="text-xs text-slate-500">1h ago</p>
+                  </div>
+                  <h3 class="font-semibold">Dinner idea</h3>
+                  <p class="text-sm text-slate-600">
+                    Trying out a new recipe tonight!
+                  </p>
+                </div>
+              </article>
+
+              <!-- Post card 4 -->
+              <article
+                class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="A city street"
+                  class="h-40 w-full object-cover"
+                  loading="lazy"
+                />
+                <div class="space-y-2 p-4">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium">@jules</p>
+                    <p class="text-xs text-slate-500">2d ago</p>
+                  </div>
+                  <h3 class="font-semibold">City vibes</h3>
+                  <p class="text-sm text-slate-600">
+                    Exploring the city this weekend!
+                  </p>
+                </div>
+              </article>
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white">
+      <p class="mx-auto max-w-6xl px-4 py-6 text-sm text-slate-600">
+        &copy; <span id="year">2026</span> SocialApp
+      </p>
+    </footer>
+
+    <script src="../js/menu.js" defer></script>
+  </body>
+</html>
